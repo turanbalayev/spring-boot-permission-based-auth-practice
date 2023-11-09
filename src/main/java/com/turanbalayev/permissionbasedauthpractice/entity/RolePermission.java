@@ -28,11 +28,13 @@ public class RolePermission {
     private Permission permission;
 
     @Column(name = "created_at")
-    @CreatedDate
     private LocalDate createdAt;
 
-    public RolePermission(Role role, Permission permission) {
+
+    public RolePermission(RolePermissionId id, Role role, Permission permission) {
+        this.id = id;
         this.role = role;
         this.permission = permission;
+        this.createdAt = LocalDate.now();
     }
 }
