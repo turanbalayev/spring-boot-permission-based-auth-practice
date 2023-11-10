@@ -73,9 +73,17 @@ public class PermissionBasedAuthPracticeApplication {
 
 			List<Role> rolesOfAlex = userService.getRolesOfUserByUserId(alex.getId());
 
+
+
 			rolesOfAlex.forEach(role -> {
 				log.info("{} has a role: {}",alex.getFirstName(),role.getName());
+
+				roleService.getPermissionOfRoleByRoleName(role.getName()).forEach(
+						(p) -> {log.info("Role {} has permission {}",role.getName(),p.getName());}
+				);
+
 			});
+
 
 
 		};

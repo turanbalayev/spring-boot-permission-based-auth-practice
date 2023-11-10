@@ -14,4 +14,6 @@ public interface RoleService {
     void addPermissionToARole(String permissionName, String roleName);
 
     List<Role> getAllRoles();
+
+    List<Permission> getPermissionOfRoleByRoleName(String roleName);
 }

@@ -54,4 +54,11 @@ public class RoleServiceImpl implements RoleService{
     public List<Role> getAllRoles() {
         return roleRepository.findAll();
     }
+
+    @Override
+    public List<Permission> getPermissionOfRoleByRoleName(String roleName) {
+        roleRepository.findByName(roleName).orElseThrow(() -> new RuntimeException("Role not found"));
+
+        return rolePermissionRepository.getPermissionsOfRoleByRoleName(roleName);
+    }
 }
