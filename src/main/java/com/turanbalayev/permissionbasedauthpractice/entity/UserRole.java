@@ -1,6 +1,7 @@
 package com.turanbalayev.permissionbasedauthpractice.entity;
 
 import com.turanbalayev.permissionbasedauthpractice.entity.composite.UserRoleId;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,5 +34,12 @@ public class UserRole {
     public UserRole(User user, Role role) {
         this.user = user;
         this.role = role;
+    }
+
+    public UserRole(UserRoleId id, User user, Role role) {
+        this.id = id;
+        this.user = user;
+        this.role = role;
+        this.createdAt = LocalDate.now();
     }
 }

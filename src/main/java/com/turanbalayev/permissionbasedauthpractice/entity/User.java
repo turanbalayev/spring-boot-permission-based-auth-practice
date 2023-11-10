@@ -30,4 +30,11 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<UserRole> userRoles = new ArrayList<>();
+
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 }
