@@ -9,5 +9,7 @@ public interface PermissionService {
     Permission savePermission(String permissionName);
     Permission getPermissionByName(String permissionName);
 
-    List<Permission> getAllPermissions();
+    List<String> getAllPermissions();
+
+
 }

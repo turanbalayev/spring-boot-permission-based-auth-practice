@@ -1,5 +1,6 @@
 package com.turanbalayev.permissionbasedauthpractice.service;
 
+import com.turanbalayev.permissionbasedauthpractice.dto.RoleDto;
 import com.turanbalayev.permissionbasedauthpractice.entity.Permission;
 import com.turanbalayev.permissionbasedauthpractice.entity.Role;
 
@@ -7,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RoleService {
-    Role saveRole(String roleName);
+    RoleDto saveRole(RoleDto roleDto);
 
     Role getRoleByName(String roleName);
 
@@ -15,5 +16,9 @@ public interface RoleService {
 
     List<Role> getAllRoles();
 
-    List<Permission> getPermissionOfRoleByRoleName(String roleName);
+    List<String> getPermissionOfRoleByRoleName(String roleName);
+
+    RoleDto updateRole(RoleDto roleDto, Long roleId);
+
+    RoleDto removePermissionFromARole(Long roleId, Long permissionId);
 }

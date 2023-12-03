@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service @RequiredArgsConstructor
 public class PermissionServiceImpl implements PermissionService{
@@ -29,7 +30,7 @@ public class PermissionServiceImpl implements PermissionService{
     }
 
     @Override
-    public List<Permission> getAllPermissions() {
-        return permissionRepository.findAll();
+    public List<String> getAllPermissions() {
+        return permissionRepository.findAll().stream().map(p -> p.getName()).collect(Collectors.toList());
     }
 }
